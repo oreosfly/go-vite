@@ -14,6 +14,9 @@ type mockNet struct {
 	*receiver
 }
 
+func (n *mockNet) AddPlugin(plugin p2p.Plugin) {
+}
+
 func (n *mockNet) Info() *NodeInfo {
 	return &NodeInfo{}
 }
