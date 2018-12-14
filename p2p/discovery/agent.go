@@ -215,8 +215,6 @@ func (a *agent) ping(node *Node, callback func(*Node, error)) {
 		code: pingCode,
 		msg: &Ping{
 			ID:         a.self.ID,
-			IP:         a.self.IP,
-			UDP:        a.self.UDP,
 			TCP:        a.self.TCP,
 			Net:        a.self.Net,
 			Ext:        a.self.Ext,
