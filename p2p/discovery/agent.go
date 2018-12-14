@@ -3,15 +3,16 @@ package discovery
 import (
 	"errors"
 	"fmt"
+	"net"
+	"sync"
+	"time"
+
 	"github.com/vitelabs/go-vite/common"
 	"github.com/vitelabs/go-vite/common/types"
 	"github.com/vitelabs/go-vite/crypto/ed25519"
 	"github.com/vitelabs/go-vite/log15"
 	"github.com/vitelabs/go-vite/monitor"
 	"github.com/vitelabs/go-vite/p2p/list"
-	"net"
-	"sync"
-	"time"
 )
 
 const maxNeighborsOneTrip = 10
@@ -217,6 +218,8 @@ func (a *agent) ping(node *Node, callback func(*Node, error)) {
 			IP:         a.self.IP,
 			UDP:        a.self.UDP,
 			TCP:        a.self.TCP,
+			Net:        a.self.Net,
+			Ext:        a.self.Ext,
 			Expiration: getExpiration(),
 		},
 		wait: &wait{
